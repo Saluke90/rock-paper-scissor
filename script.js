@@ -1,4 +1,5 @@
 
+
 //Get random number 1-3
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max-min + 1) + min)
@@ -21,10 +22,6 @@ function compChoice() {
     }
     return choice;
 }
-
-//Prompt the user for a choice//
-
-//let userChoice = prompt("Rock, Paper or Scissor?");
 
 
 //Function to play a single round, declare winner//
@@ -57,7 +54,8 @@ function singleRound(comp, user) {
 
 
 //Function to play previous function(single round) 5 times, declare winner//
-function fullGame() {
+/*function fullGame() {
+
 
     let wins = 0;
     let loses = 0;
@@ -89,4 +87,90 @@ function fullGame() {
     }
 }
 
-fullGame();
+fullGame();*/
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissor");
+const buttons = document.querySelectorAll("button");
+
+const container = document.querySelector("#container");
+
+const userScore = document.querySelector(".user");
+const compScore = document.querySelector(".comp");
+
+let user = 0;
+let comp = 0;
+
+
+rock.addEventListener ("click", () => {
+    let userChoice = "rock";
+    let roundResult = (singleRound(compChoice(), userChoice));
+    if (roundResult.slice(0,5) === "You w") {
+        user += 1;
+        userScore.textContent = user;
+    }
+    else if (roundResult.slice(0,5) === "You l") {
+        comp += 1;
+        compScore.textContent = comp;
+    }
+    if (user === 5) {
+        alert("Congratulation, you won!");
+        user = 0;
+        comp = 0;
+    }
+    else if (comp === 5) {
+        alert("You lost, noob!");
+        user = 0;
+        comp = 0;
+    }
+})
+
+paper.addEventListener ("click", () => {
+    let userChoice = "paper";
+    let roundResult = (singleRound(compChoice(), userChoice));
+    if (roundResult.slice(0,5) === "You w") {
+        user += 1;
+        userScore.textContent = user;
+    }
+    else if (roundResult.slice(0,5) === "You l") {
+        comp += 1;
+        compScore.textContent = comp;
+    }
+    if (user === 5) {
+        alert("Congratulation, you won!");
+        user = 0;
+        comp = 0;
+    }
+    else if (comp === 5) {
+        alert("You lost, noob!");
+        user = 0;
+        comp = 0;
+    }
+})
+
+scissors.addEventListener ("click", () => {
+    let userChoice = "scissor";
+    let roundResult = (singleRound(compChoice(), userChoice));
+    if (roundResult.slice(0,5) === "You w") {
+        user += 1;
+        userScore.textContent = user;
+    }
+    else if (roundResult.slice(0,5) === "You l") {
+        comp += 1;
+        compScore.textContent = comp;
+    }
+    if (user === 5) {
+        alert("Congratulation, you won!");
+        user = 0;
+        comp = 0;
+    }
+    else if (comp === 5) {
+        alert("You lost, noob!");
+        user = 0;
+        comp = 0;
+    }
+})
+
+
+ 
